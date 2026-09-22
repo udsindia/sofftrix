@@ -2,33 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0A1626" />
+    <meta name="theme-color" content="#F6F5F1" />
+    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+    <link rel="apple-touch-icon" href="/logo.jpg" />
 
-    <title>VUTrak by Sofftrix | Reach every lead on WhatsApp in seconds</title>
-    <meta
-      name="description"
-      content="VUTrak is a CRM that opens the conversation for you. New leads get a WhatsApp message within seconds of arriving, and every reply lands in one shared pipeline your team works out of."
-    />
-
-    <meta property="og:title" content="VUTrak by Sofftrix" />
-    <meta
-      property="og:description"
-      content="A CRM that reaches every new lead on WhatsApp before they go cold."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/logo.jpg" />
+    <!-- Title, description, canonical, share tags, and structured data for
+         each page are written here at build time by scripts/prerender.js,
+         from src/seo.js. In dev, <PageMeta> in App.jsx fills them in. -->
+    <!--seo-head-->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Figtree:wght@300..800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Scroll reveals start hidden and are shown by JavaScript. Without it,
+         show everything. -->
+    <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--seo-body--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -1,19 +1,26 @@
 import { Link } from 'react-router-dom'
 import LeadInbox from '../components/LeadInbox.jsx'
 import Reveal from '../components/Reveal.jsx'
+import Closing from '../components/Closing.jsx'
+import Icon from '../components/Icon.jsx'
+import { Corners, Hatch, SecBar } from '../components/Frame.jsx'
+import { FAQS } from '../faqs.js'
 
 /* Where leads actually go missing. No invented statistics — these are the
    failure modes, which is what an owner recognises anyway. */
 const leaks = [
   {
+    icon: 'eyeOff',
     title: 'Nobody saw it',
     body: 'The lead lands in an ad account, a form inbox, or a spreadsheet nobody has open. It is not lost, it is just unread until tomorrow.',
   },
   {
+    icon: 'phoneMissed',
     title: 'Somebody called once',
     body: 'One missed call at 3pm and the lead quietly becomes a row that no one owns. There is no second attempt because there is no record of the first.',
   },
   {
+    icon: 'smartphone',
     title: 'The thread lives on a phone',
     body: 'The conversation happens on a rep’s personal WhatsApp. When they are busy, on leave, or gone, the history goes with them.',
   },
@@ -87,13 +94,41 @@ const verticals = [
   },
 ]
 
+/* Where leads come in from. These are real integrations, so they take the
+   place a customer-logo wall would have — no invented logos. */
+const sources = [
+  'Meta lead ads',
+  'Google ads',
+  'Website forms',
+  'Landing pages',
+  'Click-to-WhatsApp',
+  'Missed calls',
+  'WhatsApp inbox',
+  'CSV import',
+]
+
+/* Things that are true of the platform, shown beside the four-second clock. */
+const guarantees = [
+  { k: 'Messaging', v: 'Official WhatsApp Business API' },
+  { k: 'First message', v: 'Pre-approved template' },
+  { k: 'Receipts', v: 'Delivered & read, per message' },
+  { k: 'Tenancy', v: 'Isolated workspace per business' },
+]
+
 export default function Home() {
   return (
     <>
       <section className="hero">
-        <div className="shell hero-grid">
-          <div>
-            <p className="eyebrow is-waiting">A lead just landed</p>
+        <SecBar num="01" label="Lead CRM" aside="WhatsApp · Meta · Google · Web" />
+
+        <div className="hero-grid">
+          <div className="hero-copy">
+            <div className="hero-chips">
+              <span className="chip">
+                <span className="chip-dot is-waiting" /> A lead just landed
+              </span>
+              <span className="chip">Official WhatsApp Business API</span>
+            </div>
             <h1>
               Reach every new lead in <span className="hl">four seconds</span>,
               not four hours.
@@ -112,21 +147,54 @@ export default function Home() {
                 See how it works
               </Link>
             </div>
-            <p className="hero-note">
-              BUILT ON THE OFFICIAL WHATSAPP BUSINESS API · BY SOFFTRIX
-            </p>
+
+            <dl className="hero-stats">
+              <div>
+                <dt>First message</dt>
+                <dd>
+                  0:04<small>sec</small>
+                </dd>
+              </div>
+              <div>
+                <dt>Lead sources</dt>
+                <dd>
+                  {sources.length}
+                  <small>built in</small>
+                </dd>
+              </div>
+              <div>
+                <dt>Pipeline</dt>
+                <dd>
+                  1<small>shared</small>
+                </dd>
+              </div>
+            </dl>
           </div>
 
-          <LeadInbox />
+          <Corners className="hero-visual">
+            <LeadInbox />
+          </Corners>
+        </div>
+
+        <div className="sources">
+          <p className="sources-label">Leads arrive from</p>
+          <ul className="sources-grid">
+            {sources.map((source) => (
+              <li key={source}>{source}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className="leak">
-        <div className="shell">
-          <Reveal className="leak-head">
-            <p className="eyebrow is-waiting">The problem</p>
+      <Hatch />
+
+      <section className="section">
+        <SecBar num="02" label="The problem" aside="Three leaks" />
+        <div className="section-inner">
+          <Reveal className="section-head">
             <h2 className="section-title">
-              Leads rarely go to a competitor. They go unanswered.
+              Leads rarely go to a competitor.{' '}
+              <span className="muted">They go unanswered.</span>
             </h2>
             <p className="section-lede">
               You already pay for the lead. What decides whether it becomes
@@ -135,9 +203,15 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <div className="leak-list">
-            {leaks.map((leak) => (
-              <Reveal className="leak-item" key={leak.title}>
+          <div className="cells cells-3">
+            {leaks.map((leak, i) => (
+              <Reveal className="cell" key={leak.title}>
+                <div className="cell-top">
+                  <span className="cell-icon is-waiting">
+                    <Icon name={leak.icon} />
+                  </span>
+                  <span className="cell-idx">leak / 0{i + 1}</span>
+                </div>
                 <h3>{leak.title}</h3>
                 <p>{leak.body}</p>
               </Reveal>
@@ -146,22 +220,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="timeline-section">
-        <div className="shell">
-          <Reveal>
-            <p className="eyebrow">One lead, start to finish</p>
+      <Hatch />
+
+      <section className="section">
+        <SecBar num="03" label="How it works" aside="The clock starts when the lead arrives" />
+        <div className="section-inner">
+          <Reveal className="section-head">
             <h2 className="section-title">
-              What VUTrak does, in the order it does it.
+              What VUTrak does,{' '}
+              <span className="muted">in the order it does it.</span>
             </h2>
             <p className="section-lede">
-              Every feature below is pinned to the moment it fires. The clock
-              starts when the lead arrives.
+              Every feature below is pinned to the moment it fires.
             </p>
           </Reveal>
 
-          <div className="timeline">
+          <ol className="timeline">
             {timeline.map((item) => (
               <Reveal
+                as="li"
                 className={'tl-row' + (item.reached ? ' is-reached' : '')}
                 key={item.stamp}
               >
@@ -172,38 +249,77 @@ export default function Home() {
                 <div className="tl-body">
                   <h3>{item.title}</h3>
                   <p>{item.body}</p>
-                  <div className="tl-tags">
-                    {item.tags.map((tag) => (
-                      <span className="tl-tag" key={tag}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
+                <ul className="tl-tags">
+                  {item.tags.map((tag) => (
+                    <li className="tl-tag" key={tag}>
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
               </Reveal>
             ))}
+          </ol>
+        </div>
+      </section>
+
+      <Hatch />
+
+      <section className="section">
+        <SecBar num="04" label="Speed" aside="Tracked per source and per rep" />
+        <div className="section-inner">
+          <Reveal className="section-head">
+            <h2 className="section-title">
+              Built around <span className="muted">one number.</span>
+            </h2>
+          </Reveal>
+
+          <div className="speed">
+            <div className="speed-main">
+              <div className="speed-clock" aria-label="Four seconds">
+                <span className="is-waiting">0:0</span>
+                <span className="is-reached">4</span>
+              </div>
+              <p>
+                seconds between a lead arriving and your business number
+                opening the conversation on WhatsApp.
+              </p>
+            </div>
+            <dl className="speed-cells">
+              {guarantees.map((g) => (
+                <div key={g.k}>
+                  <dt>{g.k}</dt>
+                  <dd>{g.v}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
 
-      <section className="verticals">
-        <div className="shell">
-          <Reveal>
-            <p className="eyebrow">Who it is for</p>
+      <Hatch />
+
+      <section className="section">
+        <SecBar num="05" label="Who it is for" aside="General-purpose lead CRM" />
+        <div className="section-inner">
+          <Reveal className="section-head">
             <h2 className="section-title">
-              Any business where the first reply wins the deal.
+              Any business where{' '}
+              <span className="muted">the first reply wins the deal.</span>
             </h2>
             <p className="section-lede">
-              VUTrak is a general-purpose lead CRM. These are the places where
-              speed to first contact changes the number at the end of the month
-              the most.
+              These are the places where speed to first contact changes the
+              number at the end of the month the most.
             </p>
           </Reveal>
 
-          <div className="vertical-grid">
-            {verticals.map((v) => (
-              <Reveal className="vertical-card" key={v.title}>
-                <span className="vertical-lead">{v.lead}</span>
+          <div className="cells cells-2">
+            {verticals.map((v, i) => (
+              <Reveal className="cell" key={v.title}>
+                <div className="cell-top">
+                  <span className="cell-idx">vertical / 0{i + 1}</span>
+                  <span className="cell-tag">{v.lead}</span>
+                </div>
                 <h3>{v.title}</h3>
                 <p>{v.body}</p>
               </Reveal>
@@ -212,23 +328,36 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="closing">
-        <div className="shell">
-          <h2>See VUTrak answer a lead of your own.</h2>
-          <p>
-            Send us one real enquiry in the demo and watch the WhatsApp message
-            land. Thirty minutes, no slides.
-          </p>
-          <div className="closing-actions">
-            <Link to="/contact" className="btn btn-primary">
-              Book a demo <span className="btn-arrow">→</span>
-            </Link>
-            <Link to="/product" className="btn btn-ghost">
-              Read the product detail
-            </Link>
+      <Hatch />
+
+      <section className="section">
+        <SecBar num="06" label="FAQ" aside="Straight answers" />
+        <div className="section-inner faq-wrap">
+          <h2 className="section-title">Questions teams ask first.</h2>
+          <div className="faq">
+            {FAQS.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
+
+      <Closing
+        num="07"
+        title="See VUTrak answer a lead of your own."
+        body="Send us one real enquiry in the demo and watch the WhatsApp message land. Thirty minutes, no slides."
+      >
+        <Link to="/contact" className="btn btn-invert">
+          Book a demo <span className="btn-arrow">→</span>
+        </Link>
+        <Link to="/product" className="btn btn-ghost-dark">
+          Read the product detail
+        </Link>
+      </Closing>
     </>
   )
 }
+

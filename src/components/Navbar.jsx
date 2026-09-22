@@ -99,8 +99,8 @@ export default function Navbar() {
         </nav>
 
         <div className="nav-cta">
-          <Link to="/contact" className="btn btn-primary">
-            Book a demo
+          <Link to="/contact" className="btn btn-primary btn-sm">
+            Book a demo <span className="btn-arrow">→</span>
           </Link>
         </div>
       </div>

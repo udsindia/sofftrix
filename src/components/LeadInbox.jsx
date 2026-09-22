@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
  *
  * A lead lands, a clock starts counting in orange, and at exactly four
  * seconds VUTrak sends the first WhatsApp message — the clock freezes and
- * flips to cyan. It runs in real time, so the four seconds on screen are
+ * flips to blue. It runs in real time, so the four seconds on screen are
  * four actual seconds.
  */
 

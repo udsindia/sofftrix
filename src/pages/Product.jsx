@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal.jsx'
+import Closing from '../components/Closing.jsx'
+import Icon from '../components/Icon.jsx'
+import { Hatch, SecBar } from '../components/Frame.jsx'
 
 const blocks = [
   {
     id: 'capture',
+    icon: 'inbox',
     eyebrow: 'Capture',
     title: 'One inbox for every lead you paid for.',
     body: 'A lead is only as good as the speed it reaches a person. VUTrak connects to the places leads already arrive so none of them wait in a tab nobody has open.',
@@ -28,6 +32,7 @@ const blocks = [
   },
   {
     id: 'whatsapp',
+    icon: 'message',
     eyebrow: 'Engage',
     title: 'WhatsApp as the first connect, not the last resort.',
     body: 'VUTrak runs on the official WhatsApp Business API, so messages come from your verified business number with delivery and read receipts — not from a rep’s personal phone.',
@@ -56,6 +61,7 @@ const blocks = [
   },
   {
     id: 'track',
+    icon: 'route',
     eyebrow: 'Track',
     title: 'A pipeline your team actually works out of.',
     body: 'Most CRMs get abandoned because updating them is extra work. In VUTrak the work and the record are the same action — the conversation moves the deal.',
@@ -80,6 +86,7 @@ const blocks = [
   },
   {
     id: 'grow',
+    icon: 'chart',
     eyebrow: 'Grow',
     title: 'The numbers an owner asks for on Monday.',
     body: 'Because source and timing ride along from the first second, reporting answers business questions rather than describing CRM activity.',
@@ -104,6 +111,7 @@ const blocks = [
   },
   {
     id: 'platform',
+    icon: 'shield',
     eyebrow: 'Platform',
     title: 'Every tenant gets its own workspace.',
     body: 'VUTrak is multi-tenant by design. Your workspace, your data, your branding, separate from every other business on the platform.',
@@ -132,57 +140,73 @@ export default function Product() {
   return (
     <>
       <section className="page-head">
-        <div className="shell">
-          <p className="eyebrow">VUTrak</p>
-          <h1>The CRM built around the first four seconds.</h1>
+        <SecBar num="00" label="VUTrak" aside="Capture · Engage · Track · Grow" />
+        <div className="page-head-inner">
+          <h1>
+            The CRM built around{' '}
+            <span className="muted">the first four seconds.</span>
+          </h1>
           <p>
             Capture the lead, engage it on WhatsApp before it cools, track it
             through a pipeline your team will actually use, and grow on the
             numbers that come out the other end.
           </p>
+          <nav className="jump" aria-label="On this page">
+            {blocks.map((block, i) => (
+              <a href={`#${block.id}`} key={block.id}>
+                <span>0{i + 1}</span>
+                {block.eyebrow}
+              </a>
+            ))}
+          </nav>
         </div>
       </section>
 
-      {blocks.map((block) => (
-        <section className="feature-block" id={block.id} key={block.id}>
-          <div className="shell feature-grid">
-            <div>
-              <p className="eyebrow">{block.eyebrow}</p>
-              <h2>{block.title}</h2>
-              <p>{block.body}</p>
-            </div>
+      {blocks.map((block, i) => (
+        <div key={block.id}>
+          <Hatch />
+          <section className="feature-block" id={block.id}>
+            <SecBar
+              num={`0${i + 1}`}
+              label={block.eyebrow}
+              aside={`${block.points.length} capabilities`}
+            />
+            <div className="feature-grid">
+              <div className="feature-intro">
+                <span className="cell-icon">
+                  <Icon name={block.icon} size={22} />
+                </span>
+                <h2>{block.title}</h2>
+                <p>{block.body}</p>
+              </div>
 
-            <Reveal as="ul" className="feature-points">
-              {block.points.map((point) => (
-                <li key={point.name}>
-                  <span className="fp-mark" aria-hidden="true">
-                    ●
-                  </span>
-                  <span>
-                    <strong>{point.name}</strong>
-                    <span className="fp-desc">{point.desc}</span>
-                  </span>
-                </li>
-              ))}
-            </Reveal>
-          </div>
-        </section>
+              <Reveal as="ul" className="feature-points">
+                {block.points.map((point) => (
+                  <li key={point.name}>
+                    <span className="fp-mark">
+                      <Icon name="check" size={16} />
+                    </span>
+                    <span>
+                      <strong>{point.name}</strong>
+                      <span className="fp-desc">{point.desc}</span>
+                    </span>
+                  </li>
+                ))}
+              </Reveal>
+            </div>
+          </section>
+        </div>
       ))}
 
-      <section className="closing">
-        <div className="shell">
-          <h2>The fastest way to understand VUTrak is to watch it answer.</h2>
-          <p>
-            We will connect a test number, send a lead through, and you will see
-            the WhatsApp message arrive while we are still talking.
-          </p>
-          <div className="closing-actions">
-            <Link to="/contact" className="btn btn-primary">
-              Book a demo <span className="btn-arrow">→</span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Closing
+        num="06"
+        title="The fastest way to understand VUTrak is to watch it answer."
+        body="We will connect a test number, send a lead through, and you will see the WhatsApp message arrive while we are still talking."
+      >
+        <Link to="/contact" className="btn btn-invert">
+          Book a demo <span className="btn-arrow">→</span>
+        </Link>
+      </Closing>
     </>
   )
 }

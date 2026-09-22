@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CONTACT } from '../siteData.js'
+import { Hatch, SecBar } from '../components/Frame.jsx'
 
 const EMPTY = {
   name: '',
@@ -56,9 +57,12 @@ export default function Contact() {
   return (
     <>
       <section className="page-head">
-        <div className="shell">
-          <p className="eyebrow">Book a demo</p>
-          <h1>Thirty minutes, and one of your own leads.</h1>
+        <SecBar num="00" label="Book a demo" aside="Reply within one business day" />
+        <div className="page-head-inner">
+          <h1>
+            Thirty minutes,{' '}
+            <span className="muted">and one of your own leads.</span>
+          </h1>
           <p>
             Tell us where your leads come from today. We will set VUTrak up
             against one of those sources and let you watch the first WhatsApp
@@ -67,7 +71,10 @@ export default function Contact() {
         </div>
       </section>
 
-      <div className="shell">
+      <Hatch />
+
+      <section className="section">
+        <SecBar num="01" label="Request" aside="No newsletter" />
         <div className="contact-grid">
           <aside className="contact-aside">
             <h2>What the call looks like</h2>
@@ -230,7 +237,7 @@ export default function Contact() {
             </form>
           )}
         </div>
-      </div>
+      </section>
     </>
   )
 }
