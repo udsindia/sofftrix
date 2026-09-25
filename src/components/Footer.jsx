@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import Wordmark from './Wordmark.jsx'
-import { CONTACT, PRODUCTS } from '../siteData.js'
+import { CONTACT, PRODUCTS, SOCIAL } from '../siteData.js'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -45,6 +45,11 @@ export default function Footer() {
             </li>
             <li>
               <Link to="/contact">Book a demo</Link>
+            </li>
+            <li>
+              <a href={SOCIAL.linkedin} rel="me noopener" target="_blank">
+                LinkedIn
+              </a>
             </li>
           </ul>
         </div>

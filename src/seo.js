@@ -1,4 +1,4 @@
-import { CONTACT, SITE_URL } from './siteData.js'
+import { CONTACT, SITE_URL, SOCIAL } from './siteData.js'
 import { FAQS } from './faqs.js'
 
 /**
@@ -23,6 +23,7 @@ const organization = {
   name: 'Sofftrix',
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/logo.jpg`,
+  sameAs: Object.values(SOCIAL),
   email: CONTACT.email,
   telephone: CONTACT.phoneHref,
   address: {
@@ -88,7 +89,9 @@ function breadcrumb(name, path) {
 export const PAGES = {
   '/': {
     path: '/',
-    title: 'VUTrak — WhatsApp CRM for Instant Lead Response | Sofftrix',
+    // The brand name leads, because "Sofftrix" is the query this has to win,
+    // and a near-identical company (softtrix.com) already owns that spelling.
+    title: 'Sofftrix VUTrak — WhatsApp CRM for Instant Lead Response',
     description:
       'VUTrak is a lead CRM that messages every new lead on WhatsApp within seconds, from Meta and Google ads, web forms and calls, in one shared pipeline.',
     priority: '1.0',
@@ -96,7 +99,7 @@ export const PAGES = {
   },
   '/product': {
     path: '/product',
-    title: 'VUTrak Features: Lead Capture, WhatsApp & Pipeline',
+    title: 'VUTrak by Sofftrix — Features of the WhatsApp Lead CRM',
     description:
       'Capture leads from ads and forms, reply on the official WhatsApp Business API in seconds, route them to reps, and see which campaigns become revenue.',
     priority: '0.9',

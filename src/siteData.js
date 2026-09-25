@@ -17,6 +17,16 @@ export const PRODUCTS = [
   },
 ]
 
+/**
+ * Profiles that belong to Sofftrix. They are published as `sameAs` in the
+ * Organization structured data, which is how Google learns that this site
+ * and these profiles are the same company — the thing that separates
+ * "Sofftrix" from the similarly spelled companies at softtrix.com.
+ */
+export const SOCIAL = {
+  linkedin: 'https://www.linkedin.com/company/145198693/',
+}
+
 export const CONTACT = {
   email: 'udsindiateam@gmail.com',
   phone: '+91 97043 56075',
