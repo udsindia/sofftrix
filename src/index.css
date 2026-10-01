@@ -1557,6 +1557,78 @@ ol {
 }
 
 /* ==========================================================================
+   Legal (Privacy policy)
+   ========================================================================== */
+
+.legal {
+  max-width: 820px;
+}
+
+.legal-section + .legal-section {
+  margin-top: 44px;
+  padding-top: 44px;
+  border-top: 1px solid var(--line);
+}
+
+.legal-section h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+}
+
+.legal-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+
+.legal-body {
+  margin-top: 16px;
+  color: var(--ink-2);
+}
+
+.legal-body > * + * {
+  margin-top: 14px;
+}
+
+.legal-body a {
+  border-bottom: 1px solid var(--line-strong);
+  overflow-wrap: anywhere;
+}
+
+.legal-body a:hover {
+  border-color: var(--ink);
+}
+
+.legal-list {
+  display: grid;
+  gap: 10px;
+}
+
+.legal-list li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.legal-list li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0.72em;
+  width: 8px;
+  height: 1px;
+  background: var(--ink-2);
+}
+
+.legal-list strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ==========================================================================
    Contact
    ========================================================================== */
 

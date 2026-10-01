@@ -121,6 +121,15 @@ export const PAGES = {
     priority: '0.8',
     schema: [organization, breadcrumb('Book a demo', '/contact')],
   },
+  // Meta links here during WhatsApp tech provider onboarding. Keep the path.
+  '/privacy': {
+    path: '/privacy',
+    title: 'Privacy Policy | Sofftrix',
+    description:
+      'How Sofftrix and VUTrak collect, use, share, and delete personal data, including data received through Meta and the WhatsApp Business Platform.',
+    priority: '0.3',
+    schema: [organization, breadcrumb('Privacy policy', '/privacy')],
+  },
 }
 
 export const NOT_FOUND = {

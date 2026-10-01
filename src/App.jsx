@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx'
 import Product from './pages/Product.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
+import Privacy from './pages/Privacy.jsx'
 import NotFound from './pages/NotFound.jsx'
 import { headTags, pageFor } from './seo.js'
 
@@ -59,6 +60,7 @@ export default function App() {
             <Route path="/product" element={<Product />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

@@ -47,6 +47,9 @@ export default function Footer() {
               <Link to="/contact">Book a demo</Link>
             </li>
             <li>
+              <Link to="/privacy">Privacy policy</Link>
+            </li>
+            <li>
               <a href={SOCIAL.linkedin} rel="me noopener" target="_blank">
                 LinkedIn
               </a>
