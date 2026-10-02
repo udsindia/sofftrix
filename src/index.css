@@ -225,7 +225,7 @@ ol {
 }
 
 .section-title {
-  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  font-size: clamp(1.7rem, 2.8vw, 2.3rem);
 }
 
 .muted {
@@ -559,39 +559,10 @@ ol {
   box-shadow: 0 0 0 20px var(--bg);
 }
 
-.hero-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 26px;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 11px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.02em;
-  color: var(--ink-2);
-}
-
-.chip-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--waiting);
-  animation: pulse 1.7s ease-out infinite;
-}
-
 .hero h1 {
-  font-size: clamp(2.5rem, 4.8vw, 3.75rem);
-  letter-spacing: -0.04em;
-  line-height: 1.02;
+  font-size: clamp(2.1rem, 3.8vw, 3rem);
+  letter-spacing: -0.035em;
+  line-height: 1.06;
 }
 
 .hero h1 .hl {
@@ -600,9 +571,9 @@ ol {
 
 .hero-sub {
   margin-top: 22px;
-  font-size: 1.1rem;
+  font-size: 1.04rem;
   color: var(--muted);
-  max-width: 540px;
+  max-width: 520px;
 }
 
 .hero-actions {
@@ -1251,7 +1222,7 @@ ol {
 
 .speed-clock {
   font-family: var(--font-mono);
-  font-size: clamp(5rem, 13vw, 10rem);
+  font-size: clamp(4rem, 10vw, 7.5rem);
   font-weight: 500;
   letter-spacing: -0.06em;
   line-height: 1;
@@ -1382,7 +1353,7 @@ ol {
 }
 
 .page-head h1 {
-  font-size: clamp(2.5rem, 5vw, 3.9rem);
+  font-size: clamp(2.1rem, 3.9vw, 3.1rem);
   letter-spacing: -0.04em;
   max-width: 900px;
 }
@@ -1494,7 +1465,7 @@ ol {
 
 .feature-intro h2 {
   margin-top: 24px;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.05rem);
 }
 
 .feature-intro p {
@@ -1553,6 +1524,134 @@ ol {
 
   .feature-intro {
     position: static;
+  }
+}
+
+/* ==========================================================================
+   Illustrations — hairline vector drawings (src/components/Illustrations.jsx)
+   ========================================================================== */
+
+.ill {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ill text {
+  stroke: none;
+  font-family: var(--font-mono);
+}
+
+.ill-paper { fill: var(--surface); stroke: var(--line-strong); }
+.ill-paper-2 { fill: var(--surface-2); stroke: var(--line); }
+.ill-line { stroke: var(--line-strong); }
+.ill-ink { stroke: var(--ink-2); }
+.ill-dot { fill: var(--line-strong); stroke: none; }
+.ill-bar { fill: var(--line); stroke: none; }
+.ill-ghost { fill: none; stroke: var(--line-strong); stroke-dasharray: 3 4; }
+.ill-dash { stroke-dasharray: 4 5; }
+.ill-wait { stroke: var(--waiting); }
+.ill-wait-fill { fill: var(--waiting); stroke: none; }
+.ill-wait-soft { fill: var(--waiting-dim); stroke: none; }
+.ill-reach-fill { fill: var(--reached); stroke: none; }
+.ill-reach-thick { stroke: var(--reached); stroke-width: 3; }
+.ill-reach-tag { fill: var(--surface); stroke: var(--reached); }
+.ill-reach-dot { fill: var(--reached-dim); stroke: var(--reached); }
+.ill-bubble { fill: var(--surface-2); stroke: var(--line-strong); }
+.ill-bubble-out { fill: var(--reached-dim); stroke: var(--line-strong); }
+.ill-cold { fill: var(--surface-2); stroke: var(--line-strong); }
+.ill-cold-ink { stroke: var(--faint); }
+
+.ill-label { fill: var(--faint); font-size: 10px; letter-spacing: 0.04em; }
+.ill-label-ink { fill: var(--ink-2); }
+.ill-label-wait { fill: var(--waiting); }
+.ill-label-reach { fill: var(--reached); }
+.ill-badge { fill: #fff; font-size: 12px; font-weight: 500; }
+.ill-wide .ill-label { font-size: 13px; }
+.ill-lane { fill: var(--ink); font-size: 15px; font-weight: 500; }
+.ill-lane-reach { fill: var(--reached); }
+
+/* The two-clock diagram under the problem heading. */
+.race {
+  margin-bottom: 24px;
+  padding: 22px 28px 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  background-image: radial-gradient(var(--line) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.race-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.race-legend {
+  display: flex;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.race-legend span::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  vertical-align: 0;
+}
+
+.race-legend .is-waiting::before { background: var(--waiting); }
+.race-legend .is-reached::before { background: var(--reached); }
+
+.race-caption {
+  margin-top: 16px;
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Each leak card opens with its drawing on a dotted plate. */
+.cell-art {
+  margin: -6px -6px 26px;
+  padding: 16px 18px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--surface-2);
+  background-image: radial-gradient(var(--line) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.cell-art .cell-idx {
+  display: block;
+  margin-top: 6px;
+}
+
+@media (max-width: 640px) {
+  /* Too wide to stay legible on a phone; the caption says the same thing. */
+  .race .ill-wide,
+  .race-legend {
+    display: none;
+  }
+
+  .race {
+    padding: 18px 20px;
+  }
+
+  .race-caption {
+    margin-top: 0;
   }
 }
 
@@ -1833,7 +1932,7 @@ ol {
 }
 
 .closing h2 {
-  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
   letter-spacing: -0.035em;
 }
 

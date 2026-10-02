@@ -2,7 +2,12 @@ import { Link } from 'react-router-dom'
 import LeadInbox from '../components/LeadInbox.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Closing from '../components/Closing.jsx'
-import Icon from '../components/Icon.jsx'
+import {
+  FourHoursVsSeconds,
+  MissedOnce,
+  ThreadOnPhone,
+  UnreadTabs,
+} from '../components/Illustrations.jsx'
 import { Corners, Hatch, SecBar } from '../components/Frame.jsx'
 import { FAQS } from '../faqs.js'
 
@@ -10,17 +15,17 @@ import { FAQS } from '../faqs.js'
    failure modes, which is what an owner recognises anyway. */
 const leaks = [
   {
-    icon: 'eyeOff',
+    art: UnreadTabs,
     title: 'Nobody saw it',
     body: 'The lead lands in an ad account, a form inbox, or a spreadsheet nobody has open. It is not lost, it is just unread until tomorrow.',
   },
   {
-    icon: 'phoneMissed',
+    art: MissedOnce,
     title: 'Somebody called once',
     body: 'One missed call at 3pm and the lead quietly becomes a row that no one owns. There is no second attempt because there is no record of the first.',
   },
   {
-    icon: 'smartphone',
+    art: ThreadOnPhone,
     title: 'The thread lives on a phone',
     body: 'The conversation happens on a rep’s personal WhatsApp. When they are busy, on leave, or gone, the history goes with them.',
   },
@@ -123,12 +128,6 @@ export default function Home() {
 
         <div className="hero-grid">
           <div className="hero-copy">
-            <div className="hero-chips">
-              <span className="chip">
-                <span className="chip-dot is-waiting" /> A lead just landed
-              </span>
-              <span className="chip">Official WhatsApp Business API</span>
-            </div>
             <h1>
               Reach every new lead in <span className="hl">four seconds</span>,
               not four hours.
@@ -203,13 +202,27 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <div className="cells cells-3">
+          <Reveal className="race">
+            <div className="race-head">
+              <span className="cell-idx">same lead / two clocks</span>
+              <span className="race-legend">
+                <span className="is-waiting">waiting</span>
+                <span className="is-reached">reached</span>
+              </span>
+            </div>
+            <FourHoursVsSeconds />
+            <p className="race-caption">
+              The same enquiry, two ways. Wait for someone to notice it and
+              the first call reaches voicemail. Reply in four seconds and you
+              are already in the conversation.
+            </p>
+          </Reveal>
+
+          <div className="cells cells-3 leaks">
             {leaks.map((leak, i) => (
               <Reveal className="cell" key={leak.title}>
-                <div className="cell-top">
-                  <span className="cell-icon is-waiting">
-                    <Icon name={leak.icon} />
-                  </span>
+                <div className="cell-art">
+                  <leak.art />
                   <span className="cell-idx">leak / 0{i + 1}</span>
                 </div>
                 <h3>{leak.title}</h3>
