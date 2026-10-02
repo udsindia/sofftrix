@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SecBar } from '../components/Frame.jsx'
+import LegalPage from '../components/LegalPage.jsx'
 import { CONTACT } from '../siteData.js'
 
 /**
@@ -9,7 +9,7 @@ import { CONTACT } from '../siteData.js'
  *
  * When the policy changes, update UPDATED and describe what changed.
  */
-const UPDATED = '1 October 2026'
+const UPDATED = '2 October 2026'
 
 const email = (
   <a href={`mailto:${CONTACT.email}`}>
@@ -27,9 +27,10 @@ const sections = [
           Sofftrix ("we", "us") is a software company based in Hyderabad,
           India. We build and operate VUTrak, a lead CRM that lets businesses
           capture leads and message them through the official WhatsApp
-          Business Platform. This policy covers this website (
+          Business Platform, and AI automation that answers conversations on
+          WhatsApp and Instagram for them. This policy covers this website (
           <Link to="/">sofftrix.com</Link>) and the
-          VUTrak service.
+          our services.
         </p>
         <p>
           Registered address: {CONTACT.address}, {CONTACT.region}, India.
@@ -78,13 +79,20 @@ const sections = [
           delivery and read status, timestamps, and any media attached.
         </li>
         <li>
+          <strong>Instagram messages and comments.</strong> Direct messages,
+          story replies and mentions, and comments on posts of a business's
+          connected Instagram professional account, with the sender's
+          Instagram username and profile ID.
+        </li>
+        <li>
           <strong>Data from Meta and other platforms.</strong> When a business
           connects its accounts, we receive data through Meta's APIs (such as
-          the WhatsApp Business Platform and Meta lead ads) and other lead
+          the WhatsApp Business Platform, the Instagram API, and Meta lead
+          ads) and other lead
           sources like Google Ads and website forms. This includes the
-          WhatsApp Business Account ID, phone number ID, message templates,
-          and access tokens needed to send and receive messages for that
-          business.
+          WhatsApp Business Account ID, phone number ID, Instagram account
+          ID, message templates, and access tokens needed to send and receive
+          messages for that business.
         </li>
         <li>
           <strong>Demo requests.</strong> The details you type into our demo
@@ -103,7 +111,8 @@ const sections = [
     body: (
       <ul className="legal-list">
         <li>To provide VUTrak: receive leads, send and receive WhatsApp messages on a business's behalf, route conversations, and show reports.</li>
-        <li>To set up and manage a business's WhatsApp Business Account and phone number through Meta's onboarding.</li>
+        <li>To generate automated AI replies to WhatsApp and Instagram messages, when a business turns this on, using the instructions and information that business provides.</li>
+        <li>To set up and manage a business's WhatsApp Business Account, phone number, and Instagram connection through Meta's onboarding.</li>
         <li>To respond to demo requests and support questions.</li>
         <li>To keep the service secure, prevent abuse, and fix problems.</li>
         <li>To meet legal obligations and Meta's platform requirements.</li>
@@ -127,7 +136,7 @@ const sections = [
           <li>use it to decide anyone's eligibility for housing, employment, credit, insurance, or similar.</li>
         </ul>
         <p>
-          A business can disconnect its WhatsApp or Meta accounts from VUTrak
+          A business can disconnect its WhatsApp, Instagram, or Meta accounts
           at any time. When it does, we stop collecting data through those
           connections and revoke the access tokens we held.
         </p>
@@ -144,6 +153,16 @@ const sections = [
           <li>
             <strong>Meta (WhatsApp).</strong> Messages a business sends are
             delivered through the WhatsApp Business Platform, run by Meta.
+          </li>
+          <li>
+            <strong>Meta (Instagram).</strong> Replies to Instagram messages
+            and comments are sent through Instagram's API.
+          </li>
+          <li>
+            <strong>AI model providers.</strong> To write an automated reply,
+            the conversation and the business's instructions are sent to the
+            AI model provider we use. They process it only to return the
+            reply, under terms that do not let them train their models on it.
           </li>
           <li>
             <strong>Service providers.</strong> Hosting, database, and email
@@ -256,34 +275,13 @@ const sections = [
 
 export default function Privacy() {
   return (
-    <>
-      <section className="page-head">
-        <SecBar num="00" label="Privacy policy" aside={`Updated ${UPDATED}`} />
-        <div className="page-head-inner">
-          <h1>
-            Privacy policy{' '}
-            <span className="muted">for Sofftrix and VUTrak.</span>
-          </h1>
-          <p>
-            What we collect, why, who sees it, and how to have it deleted.
-            Last updated {UPDATED}.
-          </p>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="section-inner legal">
-          {sections.map((s, i) => (
-            <section className="legal-section" id={s.id} key={s.id}>
-              <h2>
-                <span className="legal-num">{String(i + 1).padStart(2, '0')}</span>
-                {s.title}
-              </h2>
-              <div className="legal-body">{s.body}</div>
-            </section>
-          ))}
-        </div>
-      </section>
-    </>
+    <LegalPage
+      label="Privacy policy"
+      updated={UPDATED}
+      title="Privacy policy"
+      titleMuted="for Sofftrix and VUTrak."
+      lede="What we collect, why, who sees it, and how to have it deleted."
+      sections={sections}
+    />
   )
 }
