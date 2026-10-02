@@ -15,6 +15,11 @@ export const PRODUCTS = [
     tagline: 'Lead CRM with WhatsApp as the first connect',
     to: '/product',
   },
+  {
+    name: 'AI Automation',
+    tagline: 'AI replies on WhatsApp and Instagram',
+    to: '/ai-automation',
+  },
 ]
 
 /**

@@ -105,6 +105,14 @@ export const PAGES = {
     priority: '0.9',
     schema: [organization, software, breadcrumb('VUTrak', '/product')],
   },
+  '/ai-automation': {
+    path: '/ai-automation',
+    title: 'AI Automation for WhatsApp and Instagram | Sofftrix',
+    description:
+      'AI that answers WhatsApp and Instagram messages for your business, qualifies leads, books the next step, and hands over to your team when it matters.',
+    priority: '0.9',
+    schema: [organization, breadcrumb('AI automation', '/ai-automation')],
+  },
   '/about': {
     path: '/about',
     title: 'About Sofftrix — The Hyderabad Team Behind VUTrak',

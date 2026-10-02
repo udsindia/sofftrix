@@ -7,6 +7,7 @@ import Product from './pages/Product.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Privacy from './pages/Privacy.jsx'
+import AiAutomation from './pages/AiAutomation.jsx'
 import NotFound from './pages/NotFound.jsx'
 import { headTags, pageFor } from './seo.js'
 
@@ -58,6 +59,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product" element={<Product />} />
+            <Route path="/ai-automation" element={<AiAutomation />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
