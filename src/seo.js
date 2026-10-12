@@ -138,6 +138,15 @@ export const PAGES = {
     priority: '0.3',
     schema: [organization, breadcrumb('Privacy policy', '/privacy')],
   },
+  // Meta asks for this alongside the privacy policy. Keep the path.
+  '/terms': {
+    path: '/terms',
+    title: 'Terms of Service | Sofftrix',
+    description:
+      'The terms for using Sofftrix and VUTrak, including WhatsApp, Instagram, and AI automation: your responsibilities, fees, data, and liability.',
+    priority: '0.3',
+    schema: [organization, breadcrumb('Terms of service', '/terms')],
+  },
 }
 
 export const NOT_FOUND = {

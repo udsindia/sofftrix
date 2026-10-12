@@ -8,8 +8,9 @@ import { CONTACT } from '../siteData.js'
  * /privacy and keep the data-deletion section in it.
  *
  * When the policy changes, update UPDATED and describe what changed.
+ * 12 Oct 2026: full legal name, vutrak.com in scope, template management.
  */
-const UPDATED = '2 October 2026'
+const UPDATED = '12 October 2026'
 
 const email = (
   <a href={`mailto:${CONTACT.email}`}>
@@ -24,13 +25,17 @@ const sections = [
     body: (
       <>
         <p>
-          Sofftrix ("we", "us") is a software company based in Hyderabad,
-          India. We build and operate VUTrak, a lead CRM that lets businesses
-          capture leads and message them through the official WhatsApp
-          Business Platform, and AI automation that answers conversations on
-          WhatsApp and Instagram for them. This policy covers this website (
-          <Link to="/">sofftrix.com</Link>) and the
-          our services.
+          Sofftrix Private Limited ("Sofftrix", "we", "us") is a software
+          company based in Hyderabad, India. We build and operate VUTrak, a
+          lead CRM that lets businesses capture leads and message them through
+          the official WhatsApp Business Platform, and AI automation that
+          answers conversations on WhatsApp and Instagram for them. This policy
+          covers this website (<Link to="/">sofftrix.com</Link>), the VUTrak
+          application at{' '}
+          <a href="https://vutrak.com" target="_blank" rel="noreferrer">
+            vutrak.com
+          </a>
+          , and our other services.
         </p>
         <p>
           Registered address: {CONTACT.address}, {CONTACT.region}, India.
@@ -112,7 +117,8 @@ const sections = [
       <ul className="legal-list">
         <li>To provide VUTrak: receive leads, send and receive WhatsApp messages on a business's behalf, route conversations, and show reports.</li>
         <li>To generate automated AI replies to WhatsApp and Instagram messages, when a business turns this on, using the instructions and information that business provides.</li>
-        <li>To set up and manage a business's WhatsApp Business Account, phone number, and Instagram connection through Meta's onboarding.</li>
+        <li>To set up and manage a business's WhatsApp Business Account, phone number, and Instagram connection through Meta's onboarding (Embedded Signup).</li>
+        <li>To create a business's WhatsApp message templates, submit them to Meta for review, and show their review status.</li>
         <li>To respond to demo requests and support questions.</li>
         <li>To keep the service secure, prevent abuse, and fix problems.</li>
         <li>To meet legal obligations and Meta's platform requirements.</li>
@@ -267,7 +273,7 @@ const sections = [
         <a href={`tel:${CONTACT.phoneHref}`}>
           {CONTACT.phone}
         </a>
-        . Post: Sofftrix, {CONTACT.address}, India.
+        . Post: Sofftrix Private Limited, {CONTACT.address}, India.
       </p>
     ),
   },
