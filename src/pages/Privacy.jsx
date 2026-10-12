@@ -176,7 +176,10 @@ const sections = [
             only on our instructions.
           </li>
           <li>
-            <strong>The authorities</strong>, when the law requires it.
+            <strong>The authorities</strong>, only when the law requires it.
+            We review each request for legality, challenge requests we
+            consider unlawful, disclose only the minimum data necessary, and
+            keep a record of every request and our response.
           </li>
         </ul>
       </>
