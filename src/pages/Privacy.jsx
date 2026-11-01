@@ -9,8 +9,11 @@ import { CONTACT } from '../siteData.js'
  *
  * When the policy changes, update UPDATED and describe what changed.
  * 12 Oct 2026: full legal name, vutrak.com in scope, template management.
+ * 1 Nov 2026: Facebook Login and Page data, lead ad details, WhatsApp
+ * Business app history, Instagram unsends and human replies, link to
+ * /data-deletion.
  */
-const UPDATED = '12 October 2026'
+const UPDATED = '1 November 2026'
 
 const email = (
   <a href={`mailto:${CONTACT.email}`}>
@@ -79,9 +82,31 @@ const sections = [
           and the answers they gave on a form or ad.
         </li>
         <li>
+          <strong>Facebook and Instagram lead ads.</strong> When a business
+          connects its Facebook Page, we receive each lead submitted on that
+          Page's lead forms: the answers given, the form, and the platform,
+          campaign, ad set and ad the lead came from.
+        </li>
+        <li>
+          <strong>Facebook Login and Page data.</strong> When someone at a
+          business connects VUTrak with Facebook Login, we receive the list of
+          Facebook Pages they manage (ID and name), an access token for the
+          Page they choose, the Instagram professional account linked to it,
+          and the names of that Page's lead forms. We do not store their
+          personal Facebook profile, friends, or posts.
+        </li>
+        <li>
           <strong>WhatsApp messages.</strong> Messages sent and received
           through a business's connected WhatsApp Business number, with
           delivery and read status, timestamps, and any media attached.
+        </li>
+        <li>
+          <strong>WhatsApp Business app history.</strong> If a business
+          connects the number it already uses in the WhatsApp Business app,
+          and agrees in Meta's signup to share it, we receive its saved
+          contacts (name and number), up to 6 months of past chats, and the
+          replies it later types in the app, so its conversations stay
+          complete in VUTrak. Group chats are not included.
         </li>
         <li>
           <strong>Instagram messages and comments.</strong> Direct messages,
@@ -96,8 +121,8 @@ const sections = [
           ads) and other lead
           sources like Google Ads and website forms. This includes the
           WhatsApp Business Account ID, phone number ID, Instagram account
-          ID, message templates, and access tokens needed to send and receive
-          messages for that business.
+          ID, Facebook Page ID, message templates, and access tokens needed to
+          send and receive messages for that business.
         </li>
         <li>
           <strong>Demo requests.</strong> The details you type into our demo
@@ -116,6 +141,8 @@ const sections = [
     body: (
       <ul className="legal-list">
         <li>To provide VUTrak: receive leads, send and receive WhatsApp messages on a business's behalf, route conversations, and show reports.</li>
+        <li>To create a lead in the business's VUTrak account from each lead ad submission, show which campaign and ad it came from, assign it to a member of the business's team, and send the business's WhatsApp welcome message.</li>
+        <li>To show a business's Instagram Direct messages in its VUTrak inbox and send the replies its team writes. When a person unsends an Instagram message, we remove its text from VUTrak too.</li>
         <li>To generate automated AI replies to WhatsApp and Instagram messages, when a business turns this on, using the instructions and information that business provides.</li>
         <li>To set up and manage a business's WhatsApp Business Account, phone number, and Instagram connection through Meta's onboarding (Embedded Signup).</li>
         <li>To create a business's WhatsApp message templates, submit them to Meta for review, and show their review status.</li>
@@ -139,12 +166,15 @@ const sections = [
           <li>sell, license, or rent it to anyone;</li>
           <li>use it for advertising, or to build profiles of people for anyone other than the business that owns it;</li>
           <li>share it with data brokers;</li>
-          <li>use it to decide anyone's eligibility for housing, employment, credit, insurance, or similar.</li>
+          <li>use it to decide anyone's eligibility for housing, employment, credit, insurance, or similar;</li>
+          <li>use it to train AI models.</li>
         </ul>
         <p>
           A business can disconnect its WhatsApp, Instagram, or Meta accounts
-          at any time. When it does, we stop collecting data through those
-          connections and revoke the access tokens we held.
+          at any time, in VUTrak or by removing VUTrak under Business
+          integrations in its Facebook settings. When it does, we stop
+          collecting data through those connections and revoke the access
+          tokens we held.
         </p>
       </>
     ),
@@ -215,7 +245,12 @@ const sections = [
     title: 'Deleting your data',
     body: (
       <>
-        <p>To ask us to delete your data, email {email} with:</p>
+        <p>
+          Step-by-step instructions, including how to remove VUTrak from your
+          Facebook account, are on our{' '}
+          <Link to="/data-deletion">data deletion page</Link>. In short, to ask
+          us to delete your data, email {email} with:
+        </p>
         <ul className="legal-list">
           <li>the subject line "Data deletion request";</li>
           <li>your name, and the phone number or email address the data is linked to;</li>

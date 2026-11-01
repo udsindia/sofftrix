@@ -147,6 +147,15 @@ export const PAGES = {
     priority: '0.3',
     schema: [organization, breadcrumb('Terms of service', '/terms')],
   },
+  // Meta's "Data deletion instructions URL" (App settings → Basic). Keep the path.
+  '/data-deletion': {
+    path: '/data-deletion',
+    title: 'Delete Your Data | Sofftrix',
+    description:
+      'How to remove VUTrak from your Facebook, Instagram or WhatsApp account and have Sofftrix delete your data, within 30 days.',
+    priority: '0.3',
+    schema: [organization, breadcrumb('Data deletion', '/data-deletion')],
+  },
 }
 
 export const NOT_FOUND = {
