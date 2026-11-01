@@ -3,7 +3,11 @@
 Marketing site for **VUTrak**, the lead CRM built by Sofftrix that opens the
 first conversation with a new lead on WhatsApp within seconds of it arriving.
 
-Vite + React + React Router. Pages: Home, Product (VUTrak), AI Automation, Company, Contact, Privacy policy, Terms of service.
+Vite + React + React Router. Pages: Home, Product (VUTrak), AI Automation, Company, Contact, Privacy policy, Terms of service, Data deletion.
+
+Meta links to three of them from the VUTrak app's settings, so keep their paths:
+`/privacy` (Privacy Policy URL), `/terms` (Terms of Service URL) and
+`/data-deletion` (Data deletion instructions URL).
 
 ## Run locally
 

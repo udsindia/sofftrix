@@ -78,12 +78,21 @@ const sections = [
         <ul className="legal-list">
           <li>the WhatsApp Business Terms of Service, WhatsApp Business Messaging Policy, and WhatsApp Commerce Policy;</li>
           <li>Instagram's Terms of Use and Community Guidelines;</li>
-          <li>Meta's Platform Terms and Developer Policies.</li>
+          <li>Meta's Platform Terms and Developer Policies;</li>
+          <li>Facebook's Lead Ads Terms, if you connect a Facebook Page to receive lead ad leads.</li>
         </ul>
         <p>
           You connect your WhatsApp Business Account to VUTrak through Meta's
           signup, and message templates you create in VUTrak are submitted to
-          Meta for review on your behalf.
+          Meta for review on your behalf. If you connect a number you also use
+          in the WhatsApp Business app, you choose in Meta's signup whether to
+          share your contacts and past chats with VUTrak, and you must keep
+          using the app regularly for the connection to stay active.
+        </p>
+        <p>
+          You are responsible for having the right to message the people you
+          contact, and for answering Instagram messages yourself: VUTrak's
+          Instagram inbox sends only what your team writes.
         </p>
         <p>
           Meta decides message pricing, template approval, messaging limits,

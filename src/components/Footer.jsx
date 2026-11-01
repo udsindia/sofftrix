@@ -53,6 +53,9 @@ export default function Footer() {
               <Link to="/terms">Terms of service</Link>
             </li>
             <li>
+              <Link to="/data-deletion">Data deletion</Link>
+            </li>
+            <li>
               <a href={SOCIAL.linkedin} rel="me noopener" target="_blank">
                 LinkedIn
               </a>
